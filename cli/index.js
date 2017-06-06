@@ -368,7 +368,7 @@ if(args.discover) {
 		}
 
 		const parsedArgs = args.params ? JSON.parse(args.params) : [];
-		reg.device.call(args.method, parsedArgs)
+		reg.device[args.method].apply(this, parsedArgs)
 			.then(result => {
 				info('Got result:')
 				log(JSON.stringify(result, null, '  '));
